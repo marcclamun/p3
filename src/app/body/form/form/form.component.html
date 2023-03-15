@@ -1,0 +1,157 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone"
+    viewBox="0 0 16 16">
+    <path
+        d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+</svg>
+<section class="vh-100" style="background-color: #0a4275;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-5 d-none d-md-block">
+                            <img src="https://img.freepik.com/foto-gratis/hombre-hacker-laptop_144627-25488.jpg?w=740&t=st=1678381859~exp=1678382459~hmac=5ffdf7dbdc19f9503efd30748dd7aeeedb1873fb7c00ba9a9c21a60103bc2795"
+                                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                        </div>
+                        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black">
+
+                                <form [formGroup]="MyNewForm">
+
+                                    <div class="d-flex align-items-center mb-3 pb-1">
+                                        <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                                        <!-- <span class="h1 fw-bold mb-5">Formulario</span> -->
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4 mb-2">
+                                            <div class="form-outline">
+                                                <input type="text" name="firstname" formControlName="firstname2"
+                                                    id="form3Example1" #it1 class="form-control" />
+                                                <label class="form-label" for="form3Example1">First name</label>
+                                            </div>
+                                            <div *ngIf="firstname.hasError('minlength')" class="alert alert-danger">
+                                                Mínimo tres dígitos</div>
+                                            <div *ngIf="firstname.hasError('maxlength')" class="alert alert-danger">
+                                                Máximo 20 dígitos</div>
+                                        </div>
+                                        <div class="col-md-4 mb-4">
+                                            <div class="form-outline">
+                                                <input type="text" name="secondname" formControlName="secondname2"
+                                                    id="form3Example2" #it2 class="form-control it2" />
+                                                <label class="form-label" for="form3Example2">First Surname</label>
+                                            </div>
+                                            <div *ngIf="secondname.hasError('minlength')" class="alert alert-danger">
+                                                Mínimo tres dígitos</div>
+                                            <div *ngIf="secondname.hasError('maxlength')" class="alert alert-danger">
+                                                Máximo 20 dígitos</div>
+                                        </div>
+                                        <div class="col-md-4 mb-4">
+                                            <div class="form-outline">
+                                                <input type="text" name="thirdname" formControlName="thirdname2"
+                                                    id="form3Example3" #it3 class="form-control it3" />
+                                                <label class="form-label" for="form3Example3">Last Surname</label>
+                                            </div>
+                                            <div *ngIf="thirdname.hasError('minlength')" class="alert alert-danger">
+                                                Mínimo tres dígitos</div>
+                                            <div *ngIf="thirdname.hasError('maxlength')" class="alert alert-danger">
+                                                Máximo 20 dígitos</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-outline mb-2">
+                                        <input type="email" name="email" #it4 formControlName="email2"
+                                            id="form2Example17" class="form-control form-control-lg it4" />
+                                        <label class="form-label" for="form2Example17">Email address</label>
+                                    </div>
+
+                                    <div *ngIf="email.hasError('pattern')" class="alert alert-danger">Email invalid
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 ">
+                                            <div class="form-outline">
+                                                <input type="date" formControlName="birthdate2" #it5 id="form3Example1"
+                                                    class="form-control it5" />
+                                                <label class="form-label" for="form3Example1">Date Form</label>
+                                            </div>
+                                            <!-- <div *ngIf="birthdate.hasError('pattern')" class="alert alert-danger">Date invalid</div> -->
+                                            <!-- <div *ngIf="birthdate.hasError(required)" class="alert alert-danger">Required</div> -->
+                                            <!-- <div *ngIf="birthdate.hasError('pattern')" class="alert alert-danger">Invalid Age. Valid 18</div> -->
+
+                                        </div>
+
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <input type="text" id="phone" #it6 formControlName="phone2"
+                                                    class="form-control it6" data-mdb-input-mask="+48 999-999-999" />
+                                                <label class="form-label" for="phone">Phone</label>
+                                            </div>
+                                            <div *ngIf="phone.hasError('pattern')" class="alert alert-danger">Only
+                                                numbers
+                                            </div>
+                                            <div *ngIf="phone.hasError('minlength')" class="alert alert-danger">Short
+                                                please enter 9 numbers</div>
+
+                                            <div *ngIf="phone.hasError('maxlength')" class="alert alert-danger">Long
+                                                please enter 9 numbers</div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- <div class="form-outline mb-4">
+                                        <div class="form-group">
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                            <label for="exampleFormControlSelect1">Options</label>
+
+                                        </div>
+                                    </div> -->
+                                            <div class="form-outline mb-1">
+                                                <input type="password" name="password" #it7 formControlName="password2"
+                                                    id="form2Example27" class="form-control form-control-lg it7" />
+                                                <label class="form-label" for="form2Example27">Password</label>
+                                            </div>
+                                        <div *ngIf="password.hasError('minlength')" class="alert alert-danger">Mínimo
+                                            seis
+                                            dígitos</div>
+                                        <div *ngIf="password.hasError('maxlength')" class="alert alert-danger">Máximo 15
+                                            dígitos</div>
+
+                                            
+
+                                    <div class="form-check d-flex justify-content-left mb-4">
+                                        <input class="form-check-input me-2" type="checkbox" id="form2Example33" checked
+                                            required #it8 name="check" formControlName="check2" />
+                                        <label class="form-check-label" for="form2Example33">
+                                            over 18 years </label>
+                                    </div>
+                                    <div *ngIf="check.hasError('required')" class="alert alert-danger">
+                                        Please check this box to continue.
+                                    </div>
+                                    <!-- <div *ngIf="!isChecked">checkbox is not checked</div> -->
+
+
+                                    <div class="pt-1 mb-4">
+                                        <button class="btn btn-dark btn-lg btn-block" type="submit"
+                                            [disabled]="MyNewForm.invalid" (click)="addProduct()">Login</button>
+                                    </div>
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

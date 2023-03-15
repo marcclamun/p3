@@ -1,0 +1,24 @@
+<div class="card highlight-card card-small">
+    <p>Add Products</p>   
+  </div>
+  <div style="text-align: center;">
+  <input type="text" #it1 class="it1"> <input type="text" #it2 class="it1">  <button id="btn1" (click)="addProduct()">AÑADIR</button>
+  <span></span>
+  </div>
+  <table class="tbl1" style="width:100%; text-align: center;">
+    <thead>
+      <tr> 
+          <th>NOMBRE</th>
+          <th>PRECIO</th>
+      </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let product of products">
+      <tr>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+  </table>
+  
