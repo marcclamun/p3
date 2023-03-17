@@ -5,6 +5,7 @@ import { ClientesComponent } from '../../clientes/clientes.component';
 
 
 
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -14,7 +15,7 @@ export class FormComponent {
   selectedOption = '1';
 
 
-  firstname: FormControl = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]);
+  firstname: FormControl = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20), this.checkName.bind(this)]);
   secondname: FormControl = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]);
   thirdname: FormControl = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]);
   phone: FormControl = new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(9), Validators.maxLength(9)]);
@@ -43,8 +44,8 @@ export class FormComponent {
   birthdate2: string = "";
   email2: string = "";
   password2: string = "";
-  check2:string ="";
-  
+  check2: string = "";
+
   @ViewChild("it1") myNameElem!: ElementRef;
   @ViewChild("it2") myNameElem2!: ElementRef;
   @ViewChild("it3") myNameElem3!: ElementRef;
@@ -65,6 +66,11 @@ export class FormComponent {
       this.myNameElem6.nativeElement.value, this.myNameElem7.nativeElement.value, this.myNameElem8.nativeElement.value
     );
   }
+  checkName(control: FormControl) {
+    this.firstname2 = control.value.toLowerCase(); 
+    if (this.firstname2 === 'hitler' || this.firstname2 === 'mussolini' || this.firstname2 === 'franco' || this.firstname2 === 'putin') {
+      return  { inappropriateName: true }; }
+       return null; }
 
 }
 export interface Clientes {
@@ -75,6 +81,6 @@ export interface Clientes {
   birthdate2: string;
   email2: string;
   password2: string;
-  check2:string;
+  check2: string;
 }
 

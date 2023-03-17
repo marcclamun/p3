@@ -26,13 +26,19 @@
                                             <div class="form-outline">
                                                 <input type="text" name="firstname" formControlName="firstname2"
                                                     id="form3Example1" #it1 class="form-control" />
-                                                <label class="form-label" for="form3Example1">First name</label>
+                                                <label class="form-label" for="form3Example1" appForbiddenName="bob">First name</label>
                                             </div>
                                             <div *ngIf="firstname.hasError('minlength')" class="alert alert-danger">
                                                 Mínimo tres dígitos</div>
                                             <div *ngIf="firstname.hasError('maxlength')" class="alert alert-danger">
                                                 Máximo 20 dígitos</div>
+                                                <div *ngIf="firstname.hasError('inappropriateName')">
+                                                    <div class="alert alert-danger">
+                                                        {{ firstname.value }} es un nombre inapropiado
+                                                    </div>
+                                                    </div>
                                         </div>
+                                        
                                         <div class="col-md-4 mb-4">
                                             <div class="form-outline">
                                                 <input type="text" name="secondname" formControlName="secondname2"
